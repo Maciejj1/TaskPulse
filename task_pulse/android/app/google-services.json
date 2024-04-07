@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1057508358166",
+    "project_id": "goonline-test",
+    "storage_bucket": "goonline-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1057508358166:android:f8c67ef473c0c83f73dd37",
+        "android_client_info": {
+          "package_name": "com.example.task_pulse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1057508358166-fri4cr30njche4k9bbg9509jicp1r8pa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqwKfGbQ_VAPO4x_Xlc4t5yHLGR0NPF1M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1057508358166-fri4cr30njche4k9bbg9509jicp1r8pa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
