@@ -1,7 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
+import 'package:task_pulse/features/auth/presentation/login/login_screen.dart';
+import 'package:task_pulse/features/auth/presentation/register/presentation/register_screen.dart';
+import 'package:task_pulse/features/dashboard/presentation/dashboard_screen.dart';
+import 'package:task_pulse/features/settings/settings_screen.dart';
 import 'package:task_pulse/features/splash_screen/splash_screen.dart';
+import 'package:task_pulse/features/tasks/task_screen.dart';
 
 import '../utils/services/shared/user_manager.dart';
 // Enumeracja definiująca różne ścieżki aplikacji.
@@ -43,40 +48,40 @@ class AppRoute {
             child: SplashScreen(),
           ),
         ),
-        // GoRoute(
-        //   path: Routes.login.path,
-        //   name: Routes.login.name,
-        //   pageBuilder: (BuildContext context, GoRouterState state) => const NoTransitionPage(
-        //     child: LoginScreen(),
-        //   ),
-        // ),
-        // GoRoute(
-        //   path: Routes.dashboard.path,
-        //   name: Routes.dashboard.name,
-        //   pageBuilder: (BuildContext context, GoRouterState state) => const NoTransitionPage(
-        //     child: DashboardScreen(),
-        //   ),
-        // ),
-        // GoRoute(
-        //     path: Routes.tasks.path,
-        //     name: Routes.tasks.name,
-        //     pageBuilder: (BuildContext context, GoRouterState state) => const NoTransitionPage(child: ChatsScreen())),
+        GoRoute(
+          path: Routes.login.path,
+          name: Routes.login.name,
+          pageBuilder: (BuildContext context, GoRouterState state) => const NoTransitionPage(
+            child: LoginScreen(),
+          ),
+        ),
+        GoRoute(
+          path: Routes.dashboard.path,
+          name: Routes.dashboard.name,
+          pageBuilder: (BuildContext context, GoRouterState state) => const NoTransitionPage(
+            child: DashboardScreen(),
+          ),
+        ),
+        GoRoute(
+            path: Routes.tasks.path,
+            name: Routes.tasks.name,
+            pageBuilder: (BuildContext context, GoRouterState state) => const NoTransitionPage(child: TasksScreen())),
         // GoRoute(
         //     path: Routes.taskDetails.path,
         //     name: Routes.taskDetails.name,
         //     pageBuilder: (BuildContext context, GoRouterState state) => const NoTransitionPage(child: FriendsScreen())),
-        // GoRoute(
-        //   path: Routes.register.path,
-        //   name: Routes.register.name,
-        //   pageBuilder: (BuildContext context, GoRouterState state) => const NoTransitionPage(
-        //     child: RegisterScreen(),
-        //   ),
-        // ),
+        GoRoute(
+          path: Routes.register.path,
+          name: Routes.register.name,
+          pageBuilder: (BuildContext context, GoRouterState state) => const NoTransitionPage(
+            child: RegisterScreen(),
+          ),
+        ),
         GoRoute(
           path: Routes.settings.path,
           name: Routes.settings.name,
           pageBuilder: (BuildContext context, GoRouterState state) => const NoTransitionPage(
-            child: SplashScreen(),
+            child: SettingsScreen(),
           ),
         ),
       ],

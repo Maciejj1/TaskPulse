@@ -1,6 +1,9 @@
 PODS:
   - Firebase/Analytics (10.22.0):
     - Firebase/Core
+  - Firebase/Auth (10.22.0):
+    - Firebase/CoreOnly
+    - FirebaseAuth (~> 10.22.0)
   - Firebase/Core (10.22.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (~> 10.22.0)
@@ -17,6 +20,10 @@ PODS:
     - FirebaseStorage (~> 10.22.0)
   - firebase_analytics (10.8.9):
     - Firebase/Analytics (= 10.22.0)
+    - firebase_core
+    - Flutter
+  - firebase_auth (4.17.8):
+    - Firebase/Auth (= 10.22.0)
     - firebase_core
     - Flutter
   - firebase_core (2.27.0):
@@ -53,6 +60,13 @@ PODS:
     - "GoogleUtilities/NSData+zlib (~> 7.11)"
     - nanopb (< 2.30911.0, >= 2.30908.0)
   - FirebaseAppCheckInterop (10.23.0)
+  - FirebaseAuth (10.22.0):
+    - FirebaseAppCheckInterop (~> 10.17)
+    - FirebaseCore (~> 10.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.8)
+    - GoogleUtilities/Environment (~> 7.8)
+    - GTMSessionFetcher/Core (< 4.0, >= 2.1)
+    - RecaptchaInterop (~> 100.0)
   - FirebaseAuthInterop (10.23.0)
   - FirebaseCore (10.22.0):
     - FirebaseCoreInternal (~> 10.0)
@@ -162,12 +176,14 @@ PODS:
   - PromisesObjC (2.4.0)
   - PromisesSwift (2.4.0):
     - PromisesObjC (= 2.4.0)
+  - RecaptchaInterop (100.0.0)
   - shared_preferences_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
 
 DEPENDENCIES:
   - firebase_analytics (from `.symlinks/plugins/firebase_analytics/ios`)
+  - firebase_auth (from `.symlinks/plugins/firebase_auth/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - firebase_crashlytics (from `.symlinks/plugins/firebase_crashlytics/ios`)
   - firebase_database (from `.symlinks/plugins/firebase_database/ios`)
@@ -182,6 +198,7 @@ SPEC REPOS:
     - Firebase
     - FirebaseAnalytics
     - FirebaseAppCheckInterop
+    - FirebaseAuth
     - FirebaseAuthInterop
     - FirebaseCore
     - FirebaseCoreExtension
@@ -200,10 +217,13 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - PromisesSwift
+    - RecaptchaInterop
 
 EXTERNAL SOURCES:
   firebase_analytics:
     :path: ".symlinks/plugins/firebase_analytics/ios"
+  firebase_auth:
+    :path: ".symlinks/plugins/firebase_auth/ios"
   firebase_core:
     :path: ".symlinks/plugins/firebase_core/ios"
   firebase_crashlytics:
@@ -224,12 +244,14 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Firebase: 797fd7297b7e1be954432743a0b3f90038e45a71
   firebase_analytics: b9ce200bfc2c54629076bb22d6a510f31c296ab8
+  firebase_auth: 4cf9d126dc9629a77dbcbd23723e903d8277ff5a
   firebase_core: 100945864b4aedce3cfef0c62ab864858bf013cf
   firebase_crashlytics: 2b9ca6246501a03427eb43280be7615027e32142
   firebase_database: d2b693328f0cf71c8726a8516463bcfbeebc5c6f
   firebase_storage: 7add9d0db23f17b7fd798416e6bdb34bbe17658e
   FirebaseAnalytics: 8d0ff929c63b7f72260f332b86ccf569776b75d3
   FirebaseAppCheckInterop: a1955ce8c30f38f87e7d091630e871e91154d65d
+  FirebaseAuth: bbe4c68f958504ba9e54aee181adbdf5b664fbc6
   FirebaseAuthInterop: a458e398bb1e9b71b9b42d46e54acc666b021d0f
   FirebaseCore: 0326ec9b05fbed8f8716cddbf0e36894a13837f7
   FirebaseCoreExtension: cb88851781a24e031d1b58e0bd01eb1f46b044b5
@@ -251,6 +273,7 @@ SPEC CHECKSUMS:
   nanopb: 438bc412db1928dac798aa6fd75726007be04262
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   PromisesSwift: 9d77319bbe72ebf6d872900551f7eeba9bce2851
+  RecaptchaInterop: 7d1a4a01a6b2cb1610a47ef3f85f0c411434cb21
   shared_preferences_foundation: b4c3b4cddf1c21f02770737f147a3f5da9d39695
 
 PODFILE CHECKSUM: 819463e6a0290f5a72f145ba7cde16e8b6ef0796

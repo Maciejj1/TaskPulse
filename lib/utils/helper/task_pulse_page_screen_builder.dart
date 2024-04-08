@@ -1,6 +1,7 @@
 import 'package:awesome_bottom_bar/awesome_bottom_bar.dart';
 import 'package:awesome_bottom_bar/widgets/inspired/inspired.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:task_pulse/core/resources/color_palette.dart';
@@ -11,10 +12,11 @@ class PageScreenBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        bottomNavigationBar: const ConnectifyBottomNav(),
-        backgroundColor: Colors.transparent,
-        body:
-            Container(width: double.maxFinite, color: const Color(0xFFE6EEFA), height: double.maxFinite, child: child));
+      bottomNavigationBar: const ConnectifyBottomNav(),
+      backgroundColor: Colors.transparent,
+      body: Container(
+          width: double.maxFinite.w, color: const Color(0xFFE6EEFA), height: double.maxFinite.h, child: child),
+    );
   }
 }
 
@@ -45,17 +47,19 @@ class _ConnectifyBottomNavState extends State<ConnectifyBottomNav> {
 
   @override
   Widget build(BuildContext context) {
-    return BottomBarInspiredOutside(
+    return BottomBarDivider(
       items: items,
-      backgroundColor: ColorPalette.deepPurple,
-      color: ColorPalette.white,
-      colorSelected: ColorPalette.white,
+      backgroundColor: ColorPalette.white,
+      color: ColorPalette.darkBlue,
+      colorSelected: ColorPalette.deepPurple,
       indexSelected: _calculateSelectedIndex(context),
       onTap: onTap,
-      top: -25,
       animated: true,
-      itemStyle: ItemStyle.hexagon,
-      chipStyle: const ChipStyle(notchSmoothness: NotchSmoothness.verySmoothEdge),
+      styleDivider: StyleDivider.top,
+      countStyle: const CountStyle(
+        background: Colors.white,
+        color: Colors.purple,
+      ),
     );
   }
 
@@ -91,7 +95,7 @@ class _ConnectifyBottomNavState extends State<ConnectifyBottomNav> {
       // case 3:
       //   return context.go('/ranking');
       case 2:
-        return context.go('/setting');
+        return context.go('/settings');
       default:
         return context.go('/dashboard');
     }

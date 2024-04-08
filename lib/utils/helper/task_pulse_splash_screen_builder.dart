@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 import 'package:task_pulse/core/resources/images.dart';
+import 'package:task_pulse/features/auth/presentation/widgets/auth_button.dart';
 
 class TaskPulseSplashScreenBuilder extends StatefulWidget {
   const TaskPulseSplashScreenBuilder({Key? key, this.child}) : super(key: key);
@@ -59,7 +61,14 @@ class _TaskPulseSplashScreenBuilderState extends State<TaskPulseSplashScreenBuil
                 color: Colors.white, // Kolor białego tła
                 borderRadius: BorderRadius.only(topLeft: Radius.circular(30.r), topRight: Radius.circular(30.r)),
               ),
-              height: 420.h, // Dostosuj wysokość zgodnie z wymaganiami
+              height: 420.h,
+              child: Column(
+                children: [
+                  Text('Manage your company\'s tasks with ease'),
+                  Text('Zapisuj swoje zadania , ustawia im priorytety i statusy i miej na wszystko oko'),
+                  AuthButton(buttonText: 'Get Started', buttonMethod: () => context.go('/login'))
+                ],
+              ), // Dostosuj wysokość zgodnie z wymaganiami
             ),
           ),
           // Zdjęcie na środku ekranu z animacją
