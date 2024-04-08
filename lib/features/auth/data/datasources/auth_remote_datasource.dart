@@ -38,7 +38,6 @@ class AuthRemoteDatasource {
         password: password,
       );
       String uid = userCredential.user!.uid;
-
       UserManager().setUID(uid);
     } catch (error) {
       print('Błąd w funkcji: $error');
