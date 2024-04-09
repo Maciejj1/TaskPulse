@@ -22,7 +22,7 @@ class AuthHeader extends StatelessWidget {
             Text(
               title,
               style: const TextStyle(
-                  color: ColorPalette.white, fontSize: 25, fontFamily: 'Poppins', fontWeight: FontWeight.w700),
+                  color: ColorPalette.darkBlue, fontSize: 25, fontFamily: 'Poppins', fontWeight: FontWeight.w700),
             )
           ],
         ),

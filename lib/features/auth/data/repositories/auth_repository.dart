@@ -6,7 +6,7 @@ class AuthRepository {
     try {
       await remoteDatasource.signUp(email: email, password: password, name: name);
     } catch (error) {
-      print(error);
+      rethrow;
     }
   }
 
@@ -14,7 +14,7 @@ class AuthRepository {
     try {
       await remoteDatasource.singIn(email: email, password: password);
     } catch (error) {
-      print(error);
+      rethrow;
     }
   }
 
@@ -28,7 +28,7 @@ class AuthRepository {
     try {
       await remoteDatasource.changePassword(newPassword);
     } catch (error) {
-      print(error);
+      rethrow;
     }
   }
 
@@ -36,7 +36,7 @@ class AuthRepository {
     try {
       await remoteDatasource.sendPasswordResetEmail(email);
     } catch (error) {
-      print(error);
+      rethrow;
     }
   }
 }

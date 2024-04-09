@@ -22,7 +22,7 @@ class AuthTextButton extends StatelessWidget {
             child: Text(
               buttonText,
               style: TextStyle(
-                  color: ColorPalette.deepPurple, fontSize: 14.sp, fontFamily: 'Poppins', fontWeight: FontWeight.w400),
+                  color: ColorPalette.darkBlue, fontSize: 14.sp, fontFamily: 'Poppins', fontWeight: FontWeight.w400),
             ))
       ],
     );

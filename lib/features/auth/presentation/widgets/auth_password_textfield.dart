@@ -40,37 +40,39 @@ class _AuthPasswordTextFieldState extends State<AuthPasswordTextField> {
           child: TextFormField(
             validator: widget.validator,
             controller: widget.controller,
-            style: TextStyle(color: ColorPalette.white, fontSize: 14.sp, fontFamily: 'Inter'),
+            style: TextStyle(color: ColorPalette.weatherBackgroundGradient1, fontSize: 14.sp, fontFamily: 'Inter'),
             obscureText: _obscurePassword,
             textAlignVertical: TextAlignVertical.bottom,
             decoration: InputDecoration(
-              fillColor: ColorPalette.white,
+              fillColor: ColorPalette.weatherBackgroundGradient1,
               border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
                       color: widget.isValid != null
                           ? ColorPalette.redBoxBackgroundGradient1
-                          : ColorPalette.purpleBoxGradient1)),
+                          : ColorPalette.weatherBackgroundGradient1)),
               prefixIcon: const Icon(
                 Icons.key,
-                color: Colors.white,
+                color: ColorPalette.weatherBackgroundGradient1,
               ),
               enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
                       color: widget.isValid != null
                           ? ColorPalette.redBoxBackgroundGradient1
-                          : ColorPalette.purpleBoxGradient1)),
+                          : ColorPalette.weatherBackgroundGradient1)),
               focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
                       color: widget.isValid != null
                           ? ColorPalette.redBoxBackgroundGradient1
-                          : ColorPalette.purpleBoxGradient1)),
+                          : ColorPalette.weatherBackgroundGradient1)),
               hintText: "Password",
-              hintStyle: const TextStyle(color: ColorPalette.white),
+              hintStyle: const TextStyle(
+                color: ColorPalette.weatherBackgroundGradient1,
+              ),
               suffixIcon: IconButton(
-                color: ColorPalette.white,
+                color: ColorPalette.weatherBackgroundGradient1,
                 icon: Icon(
                   _obscurePassword ? Icons.visibility_off : Icons.visibility,
                 ),

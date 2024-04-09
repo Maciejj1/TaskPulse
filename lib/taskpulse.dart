@@ -8,6 +8,9 @@ import 'package:task_pulse/features/auth/presentation/login/cubit/auth_cubit.dar
 import 'package:task_pulse/features/dashboard/data/datasources/dashboard_remote_datasource.dart';
 import 'package:task_pulse/features/dashboard/data/repositories/dashboard_repository.dart';
 import 'package:task_pulse/features/dashboard/presentation/cubit/dashboard_cubit.dart';
+import 'package:task_pulse/features/dashboard/presentation/widgets/dashboard_current_city/cubit/current_city_cubit.dart';
+import 'package:task_pulse/features/dashboard/presentation/widgets/dashboard_profile/cubit/profile_cubit.dart';
+import 'package:task_pulse/features/dashboard/presentation/widgets/dashboard_weather/cubit/weather_cubit.dart';
 import 'package:task_pulse/utils/helper/constant.dart';
 import 'package:task_pulse/utils/helper/logger.dart';
 
@@ -31,6 +34,12 @@ class TaskPulse extends StatelessWidget {
         BlocProvider<DashboardCubit>(
           create: (context) => DashboardCubit(DashboardRepository(DashboardRemoteDatasourceImpl())),
         ),
+        BlocProvider<ProfileCubit>(
+            create: (context) => ProfileCubit(DashboardRepository(DashboardRemoteDatasourceImpl()))),
+        BlocProvider<WeatherCubit>(
+            create: (context) => WeatherCubit(DashboardRepository(DashboardRemoteDatasourceImpl()))),
+        BlocProvider<CurrentCityCubit>(
+            create: (context) => CurrentCityCubit(DashboardRepository(DashboardRemoteDatasourceImpl()))),
       ],
       child: ScreenUtilInit(
         // Inicjalizacja narzędzia do dostosowywania rozmiaru ekranu

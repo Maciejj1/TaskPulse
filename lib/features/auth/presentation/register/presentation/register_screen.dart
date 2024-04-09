@@ -1,12 +1,11 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:task_pulse/core/resources/color_palette.dart';
+import 'package:task_pulse/core/widgets/task_pulse_logo_header.dart';
 import 'package:task_pulse/features/auth/data/repositories/auth_repository.dart';
-import 'package:task_pulse/features/auth/presentation/login/cubit/auth_cubit.dart';
 import 'package:task_pulse/features/auth/presentation/register/cubit/register_cubit.dart';
 import 'package:task_pulse/features/auth/presentation/widgets/auth_button.dart';
 import 'package:task_pulse/features/auth/presentation/widgets/auth_header.dart';
@@ -26,7 +25,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorPalette.darkBlue,
+      backgroundColor: ColorPalette.white,
       body: SafeArea(
         child: SingleChildScrollView(
             child: BlocProvider(
@@ -110,64 +109,51 @@ class _LoginScreenFormState extends State<LoginScreenForm> {
   @override
   Widget build(BuildContext context) {
     return Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const Gap(90),
-          const AuthHeader(
-            title: 'Hi, Welcome Back!',
-            message: 'Hello again, you’ve been missed!',
-          ),
-          const Gap(20),
-          AuthTextField(
-            header: "Name",
-            hintText: "Name",
-            icon: Iconsax.user_bulk,
-            controller: _conName,
-          ),
-          _nameError != null ? ErrorContainer(errorMessage: _nameError!) : const SizedBox(),
-          const Gap(20),
-          AuthTextField(
-            header: "Email",
-            hintText: "Email",
-            icon: Icons.mail,
-            controller: _conEmail,
-          ),
-          _emailError != null ? ErrorContainer(errorMessage: _emailError!) : const SizedBox(),
-          const Gap(20),
-          AuthPasswordTextField(
-            controller: _conPassword,
-          ),
-          _passwordError != null ? ErrorContainer(errorMessage: _passwordError!) : const SizedBox(),
-          SizedBox(
-            width: 310.w,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      'Forgot password?',
-                      style: TextStyle(
-                          color: ColorPalette.deepPurple,
-                          fontSize: 14.sp,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w400),
-                    ))
-              ],
-            ),
-          ),
-          const Gap(10),
-          AuthButton(
-              buttonText: "Login",
-              buttonMethod: () {
-                _validateFields();
-              }),
-          const Gap(20),
-          AuthTextButton(
-            buttonText: 'You have an account? Login here',
-            buttonMethod: () => context.go('/login'),
-          )
-        ]);
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        const TaskPulseLogoHeader(
+          color: ColorPalette.darkBlue,
+        ),
+        const Gap(60),
+        const AuthHeader(
+          title: 'Register',
+          message: 'Create your account!',
+        ),
+        const Gap(20),
+        AuthTextField(
+          header: "Name",
+          hintText: "Name",
+          icon: Iconsax.user_outline,
+          controller: _conName,
+        ),
+        _nameError != null ? ErrorContainer(errorMessage: _nameError!) : const SizedBox(),
+        const Gap(20),
+        AuthTextField(
+          header: "Email",
+          hintText: "Email",
+          icon: Icons.mail,
+          controller: _conEmail,
+        ),
+        _emailError != null ? ErrorContainer(errorMessage: _emailError!) : const SizedBox(),
+        const Gap(20),
+        AuthPasswordTextField(
+          controller: _conPassword,
+        ),
+        _passwordError != null ? ErrorContainer(errorMessage: _passwordError!) : const SizedBox(),
+        const Gap(20),
+        AuthButton(
+          buttonText: "Register",
+          buttonMethod: () {
+            _validateFields();
+          },
+        ),
+        const Gap(10),
+        AuthTextButton(
+          buttonText: 'You have an account? Login here',
+          buttonMethod: () => context.go('/login'),
+        )
+      ],
+    );
   }
 }

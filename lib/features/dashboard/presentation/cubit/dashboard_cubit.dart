@@ -64,20 +64,4 @@ class DashboardCubit extends Cubit<DashboardState> {
       emit(_Error(e.toString()));
     }
   }
-
-  Future<String> getCurrentCity() async {
-    try {
-      return await _dashboardRepository.getCurrentCity();
-    } catch (e) {
-      throw Exception(e);
-    }
-  }
-
-  Future<WeatherResponse> getWeather(String cityName) async {
-    try {
-      return await _dashboardRepository.getWeather(cityName);
-    } catch (e) {
-      throw Exception(e);
-    }
-  }
 }

@@ -6,5 +6,4 @@ class DashboardState with _$DashboardState {
   const factory DashboardState.loading() = _Loading;
   const factory DashboardState.success(List<TaskResponse> tasks) = _Success;
   const factory DashboardState.error(String message) = _Error;
-  const factory DashboardState.showHidePassword() = _ShowHidePassword;
 }

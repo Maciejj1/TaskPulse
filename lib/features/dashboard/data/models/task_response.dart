@@ -17,6 +17,7 @@ class TaskResponse with _$TaskResponse {
   const TaskResponse._();
 
   factory TaskResponse.fromJson(Map<String, dynamic> json) => _$TaskResponseFromJson(json);
+  @override
   Map<String, dynamic> toJson() => {
         "taskName": taskName,
         "taskDesciption": taskDesciption,

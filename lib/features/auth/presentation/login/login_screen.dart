@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:task_pulse/core/resources/color_palette.dart';
+import 'package:task_pulse/core/widgets/task_pulse_logo_header.dart';
 import 'package:task_pulse/features/auth/data/repositories/auth_repository.dart';
 import 'package:task_pulse/features/auth/presentation/login/cubit/auth_cubit.dart';
 import 'package:task_pulse/features/auth/presentation/widgets/auth_button.dart';
@@ -61,12 +62,6 @@ class _LoginScreenFormState extends State<LoginScreenForm> {
   String? _validatePassword(String? value) {
     if (value == null || value.isEmpty) {
       return 'Password is required';
-    } else if (value.length < 8) {
-      return 'Password must be at least 8 characters long';
-    } else if (!value.contains(RegExp(r'[0-9]'))) {
-      return 'Password must contain at least one digit';
-    } else if (!value.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) {
-      return 'Password must contain at least one special character';
     }
     return null;
   }
@@ -91,57 +86,60 @@ class _LoginScreenFormState extends State<LoginScreenForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const Gap(90),
-          const AuthHeader(
-            title: 'Hi, Welcome Back!',
-            message: 'Hello again, you’ve been missed!',
+    return BlocListener<AuthCubit, AuthState>(
+      listener: (context, state) {},
+      child:
+          Column(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.center, children: [
+        const TaskPulseLogoHeader(
+          color: ColorPalette.darkBlue,
+        ),
+        const Gap(90),
+        const AuthHeader(
+          title: 'Hi, Welcome!',
+          message: 'Hello again, you’ve been missed!',
+        ),
+        const Gap(20),
+        AuthTextField(
+          header: "Email",
+          hintText: "Email",
+          icon: Icons.mail,
+          controller: _conEmail,
+        ),
+        _emailError != null ? ErrorContainer(errorMessage: _emailError!) : const SizedBox(),
+        const Gap(20),
+        AuthPasswordTextField(
+          controller: _conPassword,
+        ),
+        _passwordError != null ? ErrorContainer(errorMessage: _passwordError!) : const SizedBox(),
+        SizedBox(
+          width: 310.w,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              TextButton(
+                  onPressed: () {
+                    context.go('/forgotPassword');
+                  },
+                  child: Text(
+                    'Forgot password?',
+                    style: TextStyle(
+                        color: ColorPalette.grey, fontSize: 14.sp, fontFamily: 'Poppins', fontWeight: FontWeight.w400),
+                  ))
+            ],
           ),
-          const Gap(20),
-          AuthTextField(
-            header: "Email",
-            hintText: "Email",
-            icon: Icons.mail,
-            controller: _conEmail,
-          ),
-          _emailError != null ? ErrorContainer(errorMessage: _emailError!) : const SizedBox(),
-          const Gap(20),
-          AuthPasswordTextField(
-            controller: _conPassword,
-          ),
-          _passwordError != null ? ErrorContainer(errorMessage: _passwordError!) : const SizedBox(),
-          SizedBox(
-            width: 310.w,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      'Forgot password?',
-                      style: TextStyle(
-                          color: ColorPalette.deepPurple,
-                          fontSize: 14.sp,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w400),
-                    ))
-              ],
-            ),
-          ),
-          const Gap(10),
-          AuthButton(
-              buttonText: "Login",
-              buttonMethod: () {
-                _validateFields();
-              }),
-          const Gap(20),
-          AuthTextButton(
-            buttonText: 'Not have an account? Register here',
-            buttonMethod: () => context.go('/register'),
-          )
-        ]);
+        ),
+        const Gap(10),
+        AuthButton(
+            buttonText: "Login",
+            buttonMethod: () {
+              _validateFields();
+            }),
+        const Gap(20),
+        AuthTextButton(
+          buttonText: 'Not have an account? Register here',
+          buttonMethod: () => context.go('/register'),
+        )
+      ]),
+    );
   }
 }

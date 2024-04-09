@@ -1,3 +1,4 @@
+import 'package:task_pulse/features/auth/data/models/user_model.dart';
 import 'package:task_pulse/features/dashboard/data/datasources/dashboard_remote_datasource.dart';
 import 'package:task_pulse/features/dashboard/data/models/task_response.dart';
 import 'package:task_pulse/features/dashboard/data/models/weather_response.dart';
@@ -57,7 +58,16 @@ class DashboardRepository {
 
   Future<String> getCurrentCity() async {
     try {
-      return await dashboardRemoteDatasource.getCurrentCity();
+      final city = await dashboardRemoteDatasource.getCurrentCity();
+      return city;
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
+  Future<User> getProfile() async {
+    try {
+      return await dashboardRemoteDatasource.getUserData();
     } catch (e) {
       throw Exception(e);
     }

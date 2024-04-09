@@ -43,35 +43,35 @@ class AuthTextField extends StatelessWidget {
             validator: validator,
             controller: controller,
             textAlignVertical: TextAlignVertical.bottom,
-            style: TextStyle(color: ColorPalette.white, fontSize: 14.sp, fontFamily: 'Inter'),
+            style: TextStyle(color: ColorPalette.weatherBackgroundGradient1, fontSize: 14.sp, fontFamily: 'Inter'),
             decoration: InputDecoration(
                 errorStyle:
                     TextStyle(color: ColorPalette.weatherBackgroundGradient1, fontSize: 14.sp, fontFamily: 'Inter'),
-                fillColor: ColorPalette.white,
+                fillColor: ColorPalette.weatherBackgroundGradient1,
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide(
                         color: isValid != null
                             ? ColorPalette.redBoxBackgroundGradient1
-                            : ColorPalette.purpleBoxGradient1)),
+                            : ColorPalette.weatherBackgroundGradient1)),
                 prefixIcon: Icon(
                   icon,
-                  color: Colors.white,
+                  color: ColorPalette.weatherBackgroundGradient1,
                 ),
                 enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide(
                         color: isValid != null
                             ? ColorPalette.redBoxBackgroundGradient1
-                            : ColorPalette.purpleBoxGradient1)),
+                            : ColorPalette.weatherBackgroundGradient1)),
                 focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide(
                         color: isValid != null
                             ? ColorPalette.redBoxBackgroundGradient1
-                            : ColorPalette.purpleBoxGradient1)),
+                            : ColorPalette.weatherBackgroundGradient1)),
                 hintText: hintText,
-                hintStyle: const TextStyle(color: ColorPalette.white)),
+                hintStyle: const TextStyle(color: ColorPalette.weatherBackgroundGradient1)),
           ),
         )
       ],

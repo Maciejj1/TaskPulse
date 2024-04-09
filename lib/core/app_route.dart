@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
+import 'package:task_pulse/features/auth/presentation/forgot_password/forgot_password_screen.dart';
 import 'package:task_pulse/features/auth/presentation/login/login_screen.dart';
 import 'package:task_pulse/features/auth/presentation/register/presentation/register_screen.dart';
 import 'package:task_pulse/features/dashboard/presentation/dashboard_screen.dart';
@@ -16,6 +17,7 @@ enum Routes {
   splashScreen("/splashscreen"),
   login("/login"),
   register("/register"),
+  forgotPassword("/forgotPassword"),
   dashboard("/dashboard"),
   tasks("/tasks"),
   taskDetails("/taskDetails"),
@@ -84,6 +86,12 @@ class AppRoute {
             child: SettingsScreen(),
           ),
         ),
+
+        GoRoute(
+            path: Routes.forgotPassword.path,
+            name: Routes.forgotPassword.name,
+            pageBuilder: (BuildContext context, GoRouterState state) =>
+                const NoTransitionPage(child: ForgotPasswordScreen())),
       ],
       initialLocation: Routes.splashScreen.path, // Początkowa lokalizacja.
       routerNeglect: true, // Ignorowanie routingu w pewnych przypadkach.
