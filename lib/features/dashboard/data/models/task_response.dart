@@ -23,6 +23,7 @@ class TaskResponse with _$TaskResponse {
         "taskDesciption": taskDesciption,
         "taskDeadline": taskDeadline,
         "taskPriority": taskPriority,
+        "taskStatus": taskStatus,
         "owner": owner
       };
 }

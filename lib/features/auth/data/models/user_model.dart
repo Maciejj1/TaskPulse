@@ -11,7 +11,7 @@ class User with _$User {
     final String? password,
     final String? name,
     final int? gender,
-    final DateTime? date,
+    @TimestampConverter() final DateTime? date, // Use a custom converter for Timestamp
   }) = _User;
 
   const User._();
@@ -21,4 +21,19 @@ class User with _$User {
 
   bool get isNotEmpty => this != User.empty;
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
+}
+
+// Custom converter for Timestamp
+class TimestampConverter implements JsonConverter<DateTime?, Timestamp?> {
+  const TimestampConverter();
+
+  @override
+  DateTime? fromJson(Timestamp? timestamp) {
+    return timestamp?.toDate();
+  }
+
+  @override
+  Timestamp? toJson(DateTime? dateTime) {
+    return dateTime != null ? Timestamp.fromDate(dateTime) : null;
+  }
 }

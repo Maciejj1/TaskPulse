@@ -39,4 +39,12 @@ class AuthRepository {
       rethrow;
     }
   }
+
+  Future<void> changeEmail(String newEmail) async {
+    try {
+      await remoteDatasource.changeEmail(newEmail);
+    } catch (error) {
+      rethrow;
+    }
+  }
 }

@@ -12,8 +12,7 @@ _$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => _$UserImpl(
       password: json['password'] as String?,
       name: json['name'] as String?,
       gender: json['gender'] as int?,
-      date:
-          json['date'] == null ? null : DateTime.parse(json['date'] as String),
+      date: const TimestampConverter().fromJson(json['date'] as Timestamp?),
     );
 
 Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
@@ -23,5 +22,5 @@ Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
       'password': instance.password,
       'name': instance.name,
       'gender': instance.gender,
-      'date': instance.date?.toIso8601String(),
+      'date': const TimestampConverter().toJson(instance.date),
     };

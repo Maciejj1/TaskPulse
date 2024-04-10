@@ -30,7 +30,7 @@ class DashboardWeather extends StatelessWidget {
           return const CircularProgressIndicator();
         }, success: (weather) {
           return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Container(
               width: double.infinity,
               height: 150.h,
@@ -43,10 +43,10 @@ class DashboardWeather extends StatelessWidget {
               child: Row(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 20),
+                    padding: const EdgeInsets.only(left: 10),
                     child: SvgPicture.asset(
                       Images.nightIcon,
-                      width: 90,
+                      width: 80,
                     ),
                   ),
                   Gap(10.w),

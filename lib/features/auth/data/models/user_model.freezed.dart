@@ -25,6 +25,7 @@ mixin _$User {
   String? get password => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   int? get gender => throw _privateConstructorUsedError;
+  @TimestampConverter()
   DateTime? get date => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -43,7 +44,7 @@ abstract class $UserCopyWith<$Res> {
       String? password,
       String? name,
       int? gender,
-      DateTime? date});
+      @TimestampConverter() DateTime? date});
 }
 
 /// @nodoc
@@ -108,7 +109,7 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
       String? password,
       String? name,
       int? gender,
-      DateTime? date});
+      @TimestampConverter() DateTime? date});
 }
 
 /// @nodoc
@@ -161,7 +162,12 @@ class __$$UserImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$UserImpl extends _User {
   const _$UserImpl(
-      {this.id, this.email, this.password, this.name, this.gender, this.date})
+      {this.id,
+      this.email,
+      this.password,
+      this.name,
+      this.gender,
+      @TimestampConverter() this.date})
       : super._();
 
   factory _$UserImpl.fromJson(Map<String, dynamic> json) =>
@@ -178,6 +184,7 @@ class _$UserImpl extends _User {
   @override
   final int? gender;
   @override
+  @TimestampConverter()
   final DateTime? date;
 
   @override
@@ -225,7 +232,7 @@ abstract class _User extends User {
       final String? password,
       final String? name,
       final int? gender,
-      final DateTime? date}) = _$UserImpl;
+      @TimestampConverter() final DateTime? date}) = _$UserImpl;
   const _User._() : super._();
 
   factory _User.fromJson(Map<String, dynamic> json) = _$UserImpl.fromJson;
@@ -241,6 +248,7 @@ abstract class _User extends User {
   @override
   int? get gender;
   @override
+  @TimestampConverter()
   DateTime? get date;
   @override
   @JsonKey(ignore: true)

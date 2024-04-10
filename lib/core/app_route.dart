@@ -8,6 +8,7 @@ import 'package:task_pulse/features/dashboard/presentation/dashboard_screen.dart
 import 'package:task_pulse/features/settings/settings_screen.dart';
 import 'package:task_pulse/features/splash_screen/splash_screen.dart';
 import 'package:task_pulse/features/tasks/task_screen.dart';
+import 'package:task_pulse/features/tasks/widgets/task_details_page.dart';
 
 import '../utils/services/shared/user_manager.dart';
 // Enumeracja definiująca różne ścieżki aplikacji.
@@ -68,10 +69,11 @@ class AppRoute {
             path: Routes.tasks.path,
             name: Routes.tasks.name,
             pageBuilder: (BuildContext context, GoRouterState state) => const NoTransitionPage(child: TasksScreen())),
-        // GoRoute(
-        //     path: Routes.taskDetails.path,
-        //     name: Routes.taskDetails.name,
-        //     pageBuilder: (BuildContext context, GoRouterState state) => const NoTransitionPage(child: FriendsScreen())),
+        GoRoute(
+            path: Routes.taskDetails.path,
+            name: Routes.taskDetails.name,
+            pageBuilder: (BuildContext context, GoRouterState state) =>
+                const NoTransitionPage(child: TaskDetailsPage())),
         GoRoute(
           path: Routes.register.path,
           name: Routes.register.name,
@@ -82,7 +84,7 @@ class AppRoute {
         GoRoute(
           path: Routes.settings.path,
           name: Routes.settings.name,
-          pageBuilder: (BuildContext context, GoRouterState state) => const NoTransitionPage(
+          pageBuilder: (BuildContext context, GoRouterState state) => NoTransitionPage(
             child: SettingsScreen(),
           ),
         ),

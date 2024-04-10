@@ -63,6 +63,17 @@ class AuthRemoteDatasource {
     }
   }
 
+  Future<void> changeEmail(String newEmail) async {
+    try {
+      final user = _firebaseAuth.currentUser;
+      if (user != null) {
+        await user.updateEmail(newEmail);
+      }
+    } catch (error) {
+      rethrow;
+    }
+  }
+
   Future<void> sendPasswordResetEmail(String email) async {
     try {
       await _firebaseAuth.sendPasswordResetEmail(email: email);

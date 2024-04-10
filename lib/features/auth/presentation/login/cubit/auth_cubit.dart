@@ -55,4 +55,22 @@ class AuthCubit extends Cubit<AuthState> {
       emit(const _Failure('Failed to log out'));
     }
   }
+
+  Future<void> changePassword(String newPassword) async {
+    try {
+      await _authRepository.changePassword(newPassword);
+      emit(const _Success());
+    } catch (_) {
+      emit(const _Failure('Failed to change password'));
+    }
+  }
+
+  Future<void> changeEmail(String newEmail) async {
+    try {
+      await _authRepository.changeEmail(newEmail);
+      emit(const _Success());
+    } catch (_) {
+      emit(const _Failure('Failed to change email'));
+    }
+  }
 }
