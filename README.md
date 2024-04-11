@@ -1,7 +1,10 @@
 # task_pulse
 <h1 align="center">
   <br>
-  <a href=""><img src="assets/images/image2.png" alt="Markdownify" width="200"></a>
+  <a href=""><img src="assets/images/presentation/screen1.png" alt="Markdownify" width="200"></a>
+  <img src="assets/images/presentation/screen2.png" alt="Markdownify" width="200">
+  <img src="assets/images/presentation/screen3.png" alt="Markdownify" width="200">
+  <img src="assets/images/presentation/screen4.png" alt="Markdownify" width="200">
   <br>
   TaskPulse
   <br>
