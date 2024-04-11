@@ -1,9 +1,7 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task_pulse/core/resources/color_palette.dart';
-import 'package:task_pulse/features/auth/presentation/login/cubit/auth_cubit.dart';
 import 'package:task_pulse/features/dashboard/presentation/widgets/dashboard_profile/cubit/profile_cubit.dart';
 
 class DashboardProfile extends StatelessWidget {
@@ -17,11 +15,11 @@ class DashboardProfile extends StatelessWidget {
         return state.when(
           initial: () {
             // Handle initial state
-            return Text('Initial state');
+            return const Text('Initial state');
           },
           loading: () {
             // Handle loading state
-            return CircularProgressIndicator();
+            return const CircularProgressIndicator();
           },
           success: (user) {
             // Handle success state

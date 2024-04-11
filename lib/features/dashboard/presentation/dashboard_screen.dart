@@ -1,17 +1,14 @@
 import 'package:animated_segmented_tab_control/animated_segmented_tab_control.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:task_pulse/core/resources/color_palette.dart';
 import 'package:task_pulse/core/resources/images.dart';
 import 'package:task_pulse/core/widgets/task_pulse_logo_header.dart';
-import 'package:task_pulse/features/dashboard/presentation/cubit/dashboard_cubit.dart';
 import 'package:task_pulse/features/dashboard/presentation/widgets/dashboard_analitycs/dashboard_screen_task_analitycs.dart';
 import 'package:task_pulse/features/dashboard/presentation/widgets/dashboard_analitycs/dashboard_screen_task_high_priority_analitycs.dart';
 import 'package:task_pulse/features/dashboard/presentation/widgets/dashboard_analitycs/dashboard_screen_task_low_priority_analitycs.dart';
-import 'package:task_pulse/features/dashboard/presentation/widgets/dashboard_container_status_box.dart';
 import 'package:task_pulse/features/dashboard/presentation/widgets/dashboard_profile/dashboard_profile.dart';
 import 'package:task_pulse/utils/helper/task_pulse_page_screen_builder.dart';
 
@@ -94,8 +91,8 @@ class DashboardScreen extends StatelessWidget {
             const Gap(20),
             SizedBox(
               height: 350.h,
-              child: TabBarView(
-                physics: const BouncingScrollPhysics(),
+              child: const TabBarView(
+                physics: BouncingScrollPhysics(),
                 children: [
                   DashboardScreenTasksAnalitycs(),
                   DashboardScreenTasksHighPriorityAnalitycs(),

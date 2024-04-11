@@ -18,10 +18,10 @@ import 'package:top_snackbar_flutter/top_snack_bar.dart';
 class SettingsScreen extends StatelessWidget {
   SettingsScreen({super.key});
 
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
-  TextEditingController _nameController = TextEditingController();
-  bool _obscurePassword = true;
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  final bool _obscurePassword = true;
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +85,7 @@ class SettingsScreen extends StatelessWidget {
       context: context,
       builder: (context) {
         return SettingsDialogContent(
-          formatter: [],
+          formatter: const [],
           textInputType: TextInputType.name,
           buttonMethod: () {
             if (_passwordController.text.isEmpty) {
@@ -139,7 +139,7 @@ class SettingsScreen extends StatelessWidget {
             r'x21-\x5a\x53-\x7f]|\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])';
         final regex = RegExp(pattern);
         return SettingsDialogContent(
-          formatter: [],
+          formatter: const [],
           textInputType: TextInputType.emailAddress,
           buttonMethod: () {
             if (_emailController.text.isEmpty) {
@@ -184,7 +184,7 @@ class SettingsScreen extends StatelessWidget {
       context: context,
       builder: (context) {
         return SettingsDialogContent(
-            formatter: [],
+            formatter: const [],
             textInputType: TextInputType.name,
             buttonMethod: () {
               if (_nameController.text.isEmpty) {

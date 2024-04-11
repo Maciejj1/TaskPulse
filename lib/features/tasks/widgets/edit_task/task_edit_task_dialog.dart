@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:task_pulse/core/resources/color_palette.dart';
 import 'package:task_pulse/features/auth/data/models/user_model.dart';
-import 'package:task_pulse/features/dashboard/data/models/task_response.dart';
 import 'package:task_pulse/features/dashboard/presentation/cubit/dashboard_cubit.dart';
+import 'package:task_pulse/features/tasks/models/task_response.dart';
 import 'package:task_pulse/features/tasks/widgets/edit_task/cubit/edit_task_cubit.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
@@ -105,7 +105,6 @@ class _TaskEditTaskDialogState extends State<TaskEditTaskDialog> {
               onChanged: (statusValue) {
                 setState(() {
                   status = statusValue!;
-                  print("Status: $statusValue");
                 });
               },
               items: <int>[1, 2, 3, 4].map<DropdownMenuItem<int>>((int statusValue) {

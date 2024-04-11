@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:task_pulse/features/auth/data/models/user_model.dart';
 import 'package:task_pulse/features/dashboard/data/datasources/dashboard_remote_datasource.dart';

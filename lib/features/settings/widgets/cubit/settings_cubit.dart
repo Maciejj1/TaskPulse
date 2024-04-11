@@ -1,13 +1,16 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 import 'package:task_pulse/features/dashboard/data/repositories/dashboard_repository.dart';
+import 'package:task_pulse/features/settings/data/repositories/settings_repository.dart';
 import 'package:task_pulse/utils/services/shared/user_manager.dart';
 
 part 'settings_state.dart';
 part 'settings_cubit.freezed.dart';
 
+@injectable
 class SettingsCubit extends Cubit<SettingsState> {
-  final DashboardRepository _dashboardRepository;
+  final SettingsRepository _dashboardRepository;
 
   SettingsCubit(this._dashboardRepository) : super(const _Initial());
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:task_pulse/core/resources/color_palette.dart';
-import 'package:task_pulse/features/dashboard/data/models/task_response.dart';
 import 'package:task_pulse/features/dashboard/presentation/cubit/dashboard_cubit.dart';
+import 'package:task_pulse/features/tasks/models/task_response.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
@@ -26,10 +26,11 @@ class _TaskAddNewTaskDialogState extends State<TaskAddNewTaskDialog> {
       firstDate: DateTime.now(),
       lastDate: DateTime(2101),
     );
-    if (picked != null && picked != selectedDeadline)
+    if (picked != null && picked != selectedDeadline) {
       setState(() {
         selectedDeadline = picked;
       });
+    }
   }
 
   @override
@@ -82,7 +83,6 @@ class _TaskAddNewTaskDialogState extends State<TaskAddNewTaskDialog> {
               onChanged: (statusValue) {
                 setState(() {
                   status = statusValue!;
-                  print("Status: $statusValue");
                 });
               },
               items: <int>[1, 2, 3, 4].map<DropdownMenuItem<int>>((int statusValue) {
@@ -125,7 +125,6 @@ class _TaskAddNewTaskDialogState extends State<TaskAddNewTaskDialog> {
                   ),
                 );
               } else {
-                print('StatusValue: $status');
                 Navigator.pop(context);
                 context.read<DashboardCubit>().addTask(TaskResponse(
                     taskName: nameController.text,

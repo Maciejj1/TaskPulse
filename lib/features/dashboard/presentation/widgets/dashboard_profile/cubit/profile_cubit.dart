@@ -1,11 +1,13 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 import 'package:task_pulse/features/auth/data/models/user_model.dart';
 import 'package:task_pulse/features/dashboard/data/repositories/dashboard_repository.dart';
 
 part 'profile_state.dart';
 part 'profile_cubit.freezed.dart';
 
+@injectable
 class ProfileCubit extends Cubit<ProfileState> {
   final DashboardRepository _dashboardRepository;
 
@@ -18,7 +20,6 @@ class ProfileCubit extends Cubit<ProfileState> {
       emit(_Success(profile));
     } catch (e) {
       emit(_Error(e.toString()));
-      print(e);
     }
   }
 }

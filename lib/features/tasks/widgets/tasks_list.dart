@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:icons_plus/icons_plus.dart';
+import 'package:intl/intl.dart';
+import 'package:task_pulse/core/app_route.dart';
 import 'package:task_pulse/core/resources/color_palette.dart';
-import 'package:task_pulse/features/dashboard/data/models/task_response.dart';
 import 'package:task_pulse/features/dashboard/presentation/cubit/dashboard_cubit.dart';
-import 'package:task_pulse/features/tasks/widgets/task_add_new_task_dialog.dart';
+import 'package:task_pulse/features/tasks/models/task_response.dart';
 import 'package:task_pulse/features/tasks/widgets/edit_task/task_edit_task_dialog.dart';
+import 'package:task_pulse/features/tasks/widgets/task_styles.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
@@ -86,9 +87,13 @@ class TasksList extends StatelessWidget {
                   itemCount: filteredTasks.length,
                   itemBuilder: (context, index) {
                     TaskResponse task = filteredTasks.elementAt(index);
+                    String formattedDate = task.taskDeadline ?? 'Test';
+
+                    DateTime dateTime = DateTime.parse(formattedDate);
+                    formattedDate = DateFormat('dd.MM.yyyy').format(dateTime);
                     return InkWell(
                       onTap: () {
-                        context.go('/taskDetails', extra: {'taskResponse': task});
+                        context.goNamed(Routes.taskDetails.name, pathParameters: {'id': task.id.toString()});
                       },
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
@@ -123,12 +128,38 @@ class TasksList extends StatelessWidget {
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Text(task.taskName!,
-                                          style: TextStyle(
-                                              color: ColorPalette.darkBlue,
-                                              fontSize: 16.sp,
-                                              fontWeight: FontWeight.w700)),
-                                      Text(task.taskDeadline!,
+                                      Row(
+                                        children: [
+                                          Text(task.taskName!,
+                                              style: TextStyle(
+                                                  color: ColorPalette.darkBlue,
+                                                  fontSize: 16.sp,
+                                                  fontWeight: FontWeight.w700)),
+                                          const Gap(10),
+                                          Container(
+                                            width: 70,
+                                            height: 20,
+                                            decoration: BoxDecoration(
+                                              color: TaskStyles.getColorForTaskStatusBackground(task.taskStatus),
+                                              borderRadius: BorderRadius.circular(20),
+                                            ),
+                                            child: Row(
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  TaskStyles.getTextForTaskStatus(task.taskStatus) ?? 'Test',
+                                                  style: TextStyle(
+                                                    color: TaskStyles.getColorForTaskStatus(task.taskStatus),
+                                                    fontSize: 10,
+                                                    fontWeight: FontWeight.w400,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      Text('Deadline: $formattedDate',
                                           style: TextStyle(color: ColorPalette.grey, fontSize: 12.sp)),
                                     ],
                                   )

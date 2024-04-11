@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:icons_plus/icons_plus.dart';
 import 'package:task_pulse/core/resources/color_palette.dart';
 
 class SettingsButton extends StatelessWidget {
@@ -61,7 +60,7 @@ class SettingsButton extends StatelessWidget {
                 ),
               ),
             ]),
-            Icon(
+            const Icon(
               Icons.arrow_forward_ios,
               color: ColorPalette.darkBlue,
               size: 19,

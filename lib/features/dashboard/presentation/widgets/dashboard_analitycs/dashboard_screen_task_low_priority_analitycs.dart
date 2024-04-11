@@ -13,7 +13,7 @@ class DashboardScreenTasksLowPriorityAnalitycs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: SizedBox(
         width: double.infinity,
         child: Column(
@@ -50,18 +50,18 @@ class DashboardScreenTasksLowPriorityAnalitycs extends StatelessWidget {
                                     DashboardContainerStatusBox(
                                       width: 180,
                                       height: 170,
-                                      colors: [
+                                      colors: const [
                                         ColorPalette.greenBoxBackgroundGradient1,
                                         ColorPalette.greenBoxBackgroundGradient2
                                       ],
                                       numberWithThisStatus: done,
                                       status: 'Done',
                                     ),
-                                    Gap(20),
+                                    const Gap(20),
                                     DashboardContainerStatusBox(
                                       width: 180,
                                       height: 120,
-                                      colors: [
+                                      colors: const [
                                         ColorPalette.redBoxBackgroundGradient1,
                                         ColorPalette.redBoxBackgroundGradient2
                                       ],
@@ -70,24 +70,24 @@ class DashboardScreenTasksLowPriorityAnalitycs extends StatelessWidget {
                                     ),
                                   ],
                                 ),
-                                Gap(20),
+                                const Gap(20),
                                 Column(
                                   children: [
                                     DashboardContainerStatusBox(
                                       width: 180,
                                       height: 120,
-                                      colors: [
+                                      colors: const [
                                         ColorPalette.yellowBoxBackgroundGradient1,
                                         ColorPalette.yellowBoxBackgroundGradient2
                                       ],
                                       numberWithThisStatus: planned,
                                       status: 'Planned',
                                     ),
-                                    Gap(20),
+                                    const Gap(20),
                                     DashboardContainerStatusBox(
                                       width: 180,
                                       height: 170,
-                                      colors: [
+                                      colors: const [
                                         ColorPalette.blueBoxBackgroundGradient1,
                                         ColorPalette.blueBoxBackgroundGradient2
                                       ],

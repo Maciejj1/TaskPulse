@@ -1,15 +1,17 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:task_pulse/features/dashboard/data/models/task_response.dart';
-import 'package:task_pulse/features/dashboard/data/models/weather_response.dart';
+import 'package:injectable/injectable.dart';
 import 'package:task_pulse/features/dashboard/data/repositories/dashboard_repository.dart';
+import 'package:task_pulse/features/tasks/models/task_response.dart';
+import 'package:task_pulse/features/tasks/repositories/task_repository.dart';
 import 'package:task_pulse/utils/services/shared/user_manager.dart';
 
 part 'dashboard_state.dart';
 part 'dashboard_cubit.freezed.dart';
 
+@injectable
 class DashboardCubit extends Cubit<DashboardState> {
-  final DashboardRepository _dashboardRepository;
+  final TaskRepository _dashboardRepository;
 
   DashboardCubit(this._dashboardRepository) : super(const _Initial());
 
@@ -20,7 +22,6 @@ class DashboardCubit extends Cubit<DashboardState> {
       emit(_Success(tasks));
     } catch (e) {
       emit(_Error(e.toString()));
-      print(e);
     }
   }
 
@@ -56,13 +57,11 @@ class DashboardCubit extends Cubit<DashboardState> {
   Future<void> removeTask(TaskResponse task) async {
     try {
       emit(const _Loading());
-      print("Cubit: $task");
 
       await _dashboardRepository.removeTask(task);
       final tasks = await _dashboardRepository.getAllTasks();
       emit(_Success(tasks));
     } catch (e) {
-      print(e.toString());
       emit(_Error(e.toString()));
     }
   }
@@ -93,8 +92,6 @@ class DashboardCubit extends Cubit<DashboardState> {
       final tasks = await _dashboardRepository.getAllTasks();
       emit(_Success(tasks));
     } catch (e) {
-      print(e.toString());
-
       emit(_Error(e.toString()));
     }
   }

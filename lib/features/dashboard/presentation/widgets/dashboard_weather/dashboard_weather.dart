@@ -5,7 +5,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 import 'package:task_pulse/core/resources/color_palette.dart';
 import 'package:task_pulse/core/resources/images.dart';
-import 'package:task_pulse/features/dashboard/presentation/cubit/dashboard_cubit.dart';
 import 'package:intl/intl.dart';
 import 'package:task_pulse/features/dashboard/presentation/widgets/dashboard_current_city/dashboard_current_city.dart';
 import 'package:task_pulse/features/dashboard/presentation/widgets/dashboard_weather/cubit/weather_cubit.dart';
@@ -55,7 +54,7 @@ class DashboardWeather extends StatelessWidget {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text('${DateFormat('EEEE | MMM dd').format(DateTime.now())}',
+                      Text(DateFormat('EEEE | MMM dd').format(DateTime.now()),
                           style: TextStyle(
                               color: ColorPalette.white,
                               fontSize: 14.sp,

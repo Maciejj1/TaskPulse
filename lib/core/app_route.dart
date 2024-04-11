@@ -8,7 +8,7 @@ import 'package:task_pulse/features/dashboard/presentation/dashboard_screen.dart
 import 'package:task_pulse/features/settings/settings_screen.dart';
 import 'package:task_pulse/features/splash_screen/splash_screen.dart';
 import 'package:task_pulse/features/tasks/task_screen.dart';
-import 'package:task_pulse/features/tasks/widgets/task_details_page.dart';
+import 'package:task_pulse/features/tasks/widgets/task_details/task_details_page.dart';
 
 import '../utils/services/shared/user_manager.dart';
 // Enumeracja definiująca różne ścieżki aplikacji.
@@ -21,7 +21,7 @@ enum Routes {
   forgotPassword("/forgotPassword"),
   dashboard("/dashboard"),
   tasks("/tasks"),
-  taskDetails("/taskDetails"),
+  taskDetails("tasks/:id"),
   settings("/settings");
 
   const Routes(this.path);
@@ -68,12 +68,21 @@ class AppRoute {
         GoRoute(
             path: Routes.tasks.path,
             name: Routes.tasks.name,
-            pageBuilder: (BuildContext context, GoRouterState state) => const NoTransitionPage(child: TasksScreen())),
-        GoRoute(
-            path: Routes.taskDetails.path,
-            name: Routes.taskDetails.name,
-            pageBuilder: (BuildContext context, GoRouterState state) =>
-                const NoTransitionPage(child: TaskDetailsPage())),
+            pageBuilder: (BuildContext context, GoRouterState state) => const NoTransitionPage(
+                  child: TasksScreen(),
+                ),
+            routes: [
+              GoRoute(
+                path: Routes.taskDetails.path,
+                name: Routes.taskDetails.name,
+                pageBuilder: (BuildContext context, GoRouterState state) => NoTransitionPage(
+                  child: TaskDetailsPage(
+                    id: state.pathParameters['id']!,
+                  ),
+                ),
+              ),
+            ]),
+
         GoRoute(
           path: Routes.register.path,
           name: Routes.register.name,

@@ -27,7 +27,7 @@ class SettingsDialogContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Dialog(
       backgroundColor: Colors.transparent,
-      insetPadding: EdgeInsets.all(10),
+      insetPadding: const EdgeInsets.all(10),
       child: Container(
         width: MediaQuery.of(context).size.width * 0.8,
         height: MediaQuery.of(context).size.width * 0.6,
@@ -41,7 +41,7 @@ class SettingsDialogContent extends StatelessWidget {
               dialogTitle,
               style: TextStyle(color: ColorPalette.weatherBackgroundGradient1, fontFamily: 'Poppins', fontSize: 20.sp),
             )),
-            Gap(20),
+            const Gap(20),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: SizedBox(
@@ -65,7 +65,7 @@ class SettingsDialogContent extends StatelessWidget {
                 ),
               ),
             ),
-            Gap(20),
+            const Gap(20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -73,11 +73,11 @@ class SettingsDialogContent extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                  child: Text('Cancel', style: TextStyle(color: ColorPalette.redBoxBackgroundGradient2)),
+                  child: const Text('Cancel', style: TextStyle(color: ColorPalette.redBoxBackgroundGradient2)),
                 ),
                 TextButton(
                   onPressed: () => buttonMethod(),
-                  child: Text('Change', style: TextStyle(color: ColorPalette.weatherBackgroundGradient1)),
+                  child: const Text('Change', style: TextStyle(color: ColorPalette.weatherBackgroundGradient1)),
                 ),
               ],
             )

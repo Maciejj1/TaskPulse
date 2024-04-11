@@ -1,11 +1,12 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:task_pulse/features/dashboard/data/models/weather_response.dart';
+import 'package:injectable/injectable.dart';
 import 'package:task_pulse/features/dashboard/data/repositories/dashboard_repository.dart';
 
 part 'current_city_state.dart';
 part 'current_city_cubit.freezed.dart';
 
+@injectable
 class CurrentCityCubit extends Cubit<CurrentCityState> {
   final DashboardRepository _dashboardRepository;
 
