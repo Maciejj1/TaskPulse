@@ -5,9 +5,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 import 'package:task_pulse/core/resources/color_palette.dart';
 import 'package:task_pulse/core/resources/images.dart';
-import 'package:intl/intl.dart';
 import 'package:task_pulse/features/dashboard/presentation/widgets/dashboard_current_city/dashboard_current_city.dart';
 import 'package:task_pulse/features/dashboard/presentation/widgets/dashboard_weather/cubit/weather_cubit.dart';
+import 'package:task_pulse/features/dashboard/presentation/widgets/dashboard_weather/widgets/dashboard_weather_content.dart';
 
 class DashboardWeather extends StatelessWidget {
   const DashboardWeather({
@@ -20,12 +20,8 @@ class DashboardWeather extends StatelessWidget {
       bloc: context.read<WeatherCubit>()..getWeather(),
       builder: (context, state) {
         return state.when(initial: () {
-          // Handle initial state
-
           return const Text('Initial state');
         }, loading: () {
-          // Handle loading state
-
           return const CircularProgressIndicator();
         }, success: (weather) {
           return Padding(
@@ -51,37 +47,14 @@ class DashboardWeather extends StatelessWidget {
                   Gap(10.w),
                   const DashboardCurrentCity(),
                   Gap(10.w),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(DateFormat('EEEE | MMM dd').format(DateTime.now()),
-                          style: TextStyle(
-                              color: ColorPalette.white,
-                              fontSize: 14.sp,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w400)),
-                      Gap(5.h),
-                      Text('${weather.main!.temp!.toInt()}°C',
-                          style: TextStyle(
-                              color: ColorPalette.white,
-                              fontSize: 25.sp,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.bold)),
-                      Text(weather.weather!.first.description ?? 'N/A',
-                          style: TextStyle(
-                              color: ColorPalette.white,
-                              fontSize: 14.sp,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w400))
-                    ],
+                  DashboardWeatherContent(
+                    weather: weather,
                   ),
                 ],
               ),
             ),
           );
         }, error: (error) {
-          // Handle error state
-
           return Text(error);
         });
       },

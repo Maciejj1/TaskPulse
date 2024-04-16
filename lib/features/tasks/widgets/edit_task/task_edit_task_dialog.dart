@@ -5,6 +5,7 @@ import 'package:task_pulse/features/auth/data/models/user_model.dart';
 import 'package:task_pulse/features/dashboard/presentation/cubit/dashboard_cubit.dart';
 import 'package:task_pulse/features/tasks/models/task_response.dart';
 import 'package:task_pulse/features/tasks/widgets/edit_task/cubit/edit_task_cubit.dart';
+import 'package:task_pulse/features/tasks/widgets/edit_task/widgets/task_edit_task_date.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
@@ -74,16 +75,7 @@ class _TaskEditTaskDialogState extends State<TaskEditTaskDialog> {
             ),
             GestureDetector(
               onTap: () => _selectDate(context),
-              child: AbsorbPointer(
-                child: TextField(
-                  controller: TextEditingController(
-                    text: selectedDeadline != null
-                        ? "${selectedDeadline!.day.toString().padLeft(2, '0')}.${selectedDeadline!.month.toString().padLeft(2, '0')}.${selectedDeadline!.year.toString()}"
-                        : '',
-                  ),
-                  decoration: const InputDecoration(labelText: 'Deadline'),
-                ),
-              ),
+              child: TaskEditTaskDate(selectedDeadline: selectedDeadline),
             ),
             DropdownButtonFormField<int>(
               value: priority,

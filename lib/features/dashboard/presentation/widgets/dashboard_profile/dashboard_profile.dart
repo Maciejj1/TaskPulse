@@ -14,15 +14,12 @@ class DashboardProfile extends StatelessWidget {
       builder: (context, state) {
         return state.when(
           initial: () {
-            // Handle initial state
             return const Text('Initial state');
           },
           loading: () {
-            // Handle loading state
             return const CircularProgressIndicator();
           },
           success: (user) {
-            // Handle success state
             return Padding(
               padding: const EdgeInsets.only(left: 20),
               child: SizedBox(
@@ -54,7 +51,6 @@ class DashboardProfile extends StatelessWidget {
             );
           },
           error: (message) {
-            // Handle error state
             return Text(message);
           },
         );

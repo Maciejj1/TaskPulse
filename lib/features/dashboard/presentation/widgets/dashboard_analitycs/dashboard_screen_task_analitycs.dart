@@ -22,86 +22,82 @@ class DashboardScreenTasksAnalitycs extends StatelessWidget {
               bloc: context.read<DashboardCubit>()..getAllTasks(),
               builder: (context, state) {
                 return state.when(
-                    initial: () {
-                      // Handle initial state
-
-                      return const Text('Initial state');
-                    },
-                    error: (message) => Text(message),
-                    loading: () {
-                      // Handle loading state
-
-                      return const CircularProgressIndicator();
-                    },
-                    success: (tasks) {
-                      int done = tasks.where((element) => element.taskStatus == 1).length;
-                      int planned = tasks.where((element) => element.taskStatus == 2).length;
-                      int inReview = tasks.where((element) => element.taskStatus == 3).length;
-                      int executing = tasks.where((element) => element.taskStatus == 4).length;
-
-                      return SizedBox(
-                        child: Column(
-                          children: [
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Column(
-                                  children: [
-                                    DashboardContainerStatusBox(
-                                      width: 180,
-                                      height: 170,
-                                      colors: const [
-                                        ColorPalette.greenBoxBackgroundGradient1,
-                                        ColorPalette.greenBoxBackgroundGradient2
-                                      ],
-                                      numberWithThisStatus: done,
-                                      status: 'Done',
-                                    ),
-                                    const Gap(20),
-                                    DashboardContainerStatusBox(
-                                      width: 180,
-                                      height: 120,
-                                      colors: const [
-                                        ColorPalette.redBoxBackgroundGradient1,
-                                        ColorPalette.redBoxBackgroundGradient2
-                                      ],
-                                      numberWithThisStatus: executing,
-                                      status: 'Executing',
-                                    ),
-                                  ],
-                                ),
-                                const Gap(20),
-                                Column(
-                                  children: [
-                                    DashboardContainerStatusBox(
-                                      width: 180,
-                                      height: 120,
-                                      colors: const [
-                                        ColorPalette.yellowBoxBackgroundGradient1,
-                                        ColorPalette.yellowBoxBackgroundGradient2
-                                      ],
-                                      numberWithThisStatus: planned,
-                                      status: 'Planned',
-                                    ),
-                                    const Gap(20),
-                                    DashboardContainerStatusBox(
-                                      width: 180,
-                                      height: 170,
-                                      colors: const [
-                                        ColorPalette.blueBoxBackgroundGradient1,
-                                        ColorPalette.blueBoxBackgroundGradient2
-                                      ],
-                                      numberWithThisStatus: inReview,
-                                      status: 'In review',
-                                    ),
-                                  ],
-                                )
-                              ],
-                            ),
-                          ],
-                        ),
-                      );
-                    });
+                  initial: () {
+                    return const Text('Initial state');
+                  },
+                  error: (message) => Text(message),
+                  loading: () {
+                    return const CircularProgressIndicator();
+                  },
+                  success: (tasks) {
+                    int done = tasks.where((element) => element.taskStatus == 1).length;
+                    int planned = tasks.where((element) => element.taskStatus == 2).length;
+                    int inReview = tasks.where((element) => element.taskStatus == 3).length;
+                    int executing = tasks.where((element) => element.taskStatus == 4).length;
+                    return SizedBox(
+                      child: Column(
+                        children: [
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Column(
+                                children: [
+                                  DashboardContainerStatusBox(
+                                    width: 180,
+                                    height: 170,
+                                    colors: const [
+                                      ColorPalette.greenBoxBackgroundGradient1,
+                                      ColorPalette.greenBoxBackgroundGradient2
+                                    ],
+                                    numberWithThisStatus: done,
+                                    status: 'Done',
+                                  ),
+                                  const Gap(20),
+                                  DashboardContainerStatusBox(
+                                    width: 180,
+                                    height: 120,
+                                    colors: const [
+                                      ColorPalette.redBoxBackgroundGradient1,
+                                      ColorPalette.redBoxBackgroundGradient2
+                                    ],
+                                    numberWithThisStatus: executing,
+                                    status: 'Executing',
+                                  ),
+                                ],
+                              ),
+                              const Gap(20),
+                              Column(
+                                children: [
+                                  DashboardContainerStatusBox(
+                                    width: 180,
+                                    height: 120,
+                                    colors: const [
+                                      ColorPalette.yellowBoxBackgroundGradient1,
+                                      ColorPalette.yellowBoxBackgroundGradient2
+                                    ],
+                                    numberWithThisStatus: planned,
+                                    status: 'Planned',
+                                  ),
+                                  const Gap(20),
+                                  DashboardContainerStatusBox(
+                                    width: 180,
+                                    height: 170,
+                                    colors: const [
+                                      ColorPalette.blueBoxBackgroundGradient1,
+                                      ColorPalette.blueBoxBackgroundGradient2
+                                    ],
+                                    numberWithThisStatus: inReview,
+                                    status: 'In review',
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                );
               },
             )
           ],

@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:task_pulse/features/dashboard/data/repositories/dashboard_repository.dart';
 import 'package:task_pulse/features/tasks/models/task_response.dart';
 import 'package:task_pulse/features/tasks/repositories/task_repository.dart';
 import 'package:task_pulse/utils/services/shared/user_manager.dart';
