@@ -43,7 +43,7 @@ class TaskRemoteDatasourceImpl {
 
     final querySnapshot = await collectionRef.get();
 
-    final newId = querySnapshot.docs.length + 1;
+    final newId = querySnapshot.docs.length + 2;
 
     final Map<String, dynamic> taskData = task.toJson();
     taskData['id'] = newId.toString();
